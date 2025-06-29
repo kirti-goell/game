@@ -1,0 +1,69 @@
+.headercss{
+  height:40px;
+  width: 100%;
+  background-color: grey;
+  border:2px solid black;
+  font-size:17px;
+  font-weight:bold;
+  display:flex; /*to adjust vertically and horizontally*/
+  align-items:center;/*vertically*/
+  justify-content:center;/*horizontally*/
+  
+}
+.desclass{
+  min-height:150px;
+  width:50%;
+  font-size: 22px;
+   margin-top:20px;
+  padding-left: 20px;
+  padding-right:40px;
+  margin:0 auto;
+}
+.image{
+  height:200px;
+  width:50%;
+  display:block;  /*auto works with display block */
+  margin : 2px auto; /* auto is for mid*/
+  border:2px solid black;
+  margin-top:20px;
+  
+}
+#des{
+  height:20px;
+  width:100%;
+  font-size: 20;
+  font-weight:bold;
+  text-align: center;
+   margin-top:30px;
+}
+.grid{
+  display:grid;
+  grid-template-columns: repeat(8,40px);/*10 colums each of this much px*/
+ 
+  border:2px solid black;
+ 
+}
+
+.grid-item{
+  background-color: lightgray;
+  border:1px solid black;
+  text-align:center;
+ 
+  height:40px;
+  width:40px;
+  font-size:17px;
+  font-weight:bold;
+  
+  box-sizing:border-box;
+  line-height:50px;
+  
+}
+
+.grid-wrapper{
+  display:flex; 
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+background-color: white;
+ 
+}
