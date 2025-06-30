@@ -23,7 +23,7 @@ export default function App() {
   
   <div class="">
     <Keywords/>
-    <Grid length={15} breadth={15}/>
+    <Grid length={12} breadth={12}/>
    
   </div>
 
