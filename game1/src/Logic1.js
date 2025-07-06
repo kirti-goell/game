@@ -53,8 +53,9 @@
             }
            
         }
-        console.log(grid)
+       // console.log(grid)
     }
+    localStorage.setItem("ans",grid)
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
    
     for (let i = 0; i < length; i++) {

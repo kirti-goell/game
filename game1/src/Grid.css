@@ -32,3 +32,7 @@
   background-color: #dbeafe;
   cursor: pointer;
 }
+
+.grid-cell.clicked {
+  background-color: green;
+}
