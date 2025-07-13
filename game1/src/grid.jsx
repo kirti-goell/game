@@ -100,7 +100,7 @@ const Grid = ({ length, breadth }) => {
           })}
         </div>
       ))}
-      <button
+      <button className="check-button"
         onClick={() => {
           checkFunction();
         }}

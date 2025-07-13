@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Keywords.css';
 
 export default function Keywords() {
   const getRandomKeywords = () => {
     const commonWords = [
       "APPLE", "BREAD", "CHAIR", "DANCE", "EMAIL", "FRUIT",
-  "GREEN", "HOUSE", "INPUT", "JUICE", "KNIFE", "LUNCH",
-  "MONEY", "NIGHT", "OCEAN", "PIZZA", "QUIET", "RADIO",
-  "SHIRT", "TABLE", "UNCLE", "VIDEO", "WATER", "ZEBRA"
+      "GREEN", "HOUSE", "INPUT", "JUICE", "KNIFE", "LUNCH",
+      "MONEY", "NIGHT", "OCEAN", "PIZZA", "QUIET", "RADIO",
+      "SHIRT", "TABLE", "UNCLE", "VIDEO", "WATER", "ZEBRA"
     ];
 
     const filtered = commonWords.filter(word => word.length >= 5 && word.length <= 6);
@@ -16,8 +16,22 @@ export default function Keywords() {
   };
 
   const s = getRandomKeywords();
-  localStorage.setItem("arr",s)
+  localStorage.setItem("arr", s);
+
   const WordGrid = ({ length, breadth, s }) => {
+    const [clickedCells, setClickedCells] = useState(new Set());
+
+    const handleCellClick = (i, j) => {
+      const key = `${i}-${j}`;
+      const newSet = new Set(clickedCells);
+      if (newSet.has(key)) {
+        newSet.delete(key);
+      } else {
+        newSet.add(key);
+      }
+      setClickedCells(newSet);
+    };
+
     const createGrid = () => {
       const grid = [];
       let idx = 0;
@@ -42,11 +56,18 @@ export default function Keywords() {
       <div className="word-grid-container" id="grid-box">
         {gridData.map((row, i) => (
           <div key={i} className="word-grid-row">
-            {row.map((item, j) => (
-              <div key={j} className="word-grid-cell">
-                {item}
-              </div>
-            ))}
+            {row.map((item, j) => {
+              const isClicked = clickedCells.has(`${i}-${j}`);
+              return (
+                <div
+                  key={j}
+                  className={`word-grid-cell ${isClicked ? 'red' : ''}`}
+                  onClick={() => handleCellClick(i, j)}
+                >
+                  {item}
+                </div>
+              );
+            })}
           </div>
         ))}
       </div>
